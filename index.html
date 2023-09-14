@@ -25,7 +25,7 @@
 
 
   <title>Visual Explanations via Iterated Integrated Attributions</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -210,22 +210,43 @@ state-of-the-art explanation techniques.
 <!-- End image carousel -->
 
 
-<!-- Method explain -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-2">How does it work?</h2>
+<div class="column is-four-fifths">
+        <h2 class="title is-3">How does it work?</h2>
         <div class="content has-text-justified">
           <p>
-            ...
-          </p>
+            Given an input image I of a scene, our goal is to produce a set of corresponding sketches at different levels of abstraction in terms of both its <i>fidelity</i> and <i>simplicity</i>. 
+
+            We begin by producing a set of sketches at multiple levels of abstraction along the fidelity axis, with no simplification, thus forming the top row (highlighted in blue) in the abstractions matrix. Next, for each sketch at a given level of fidelity, we perform an iterative visual simplification (highlighted in orange) by learning how to best remove select strokes and adjust the locations of the remaining strokes.
+            This process results in an abstraction matrix representing various abstractions of the complete scene.
+
+            </p>
         </div>
+        <div class="column is-centered has-text-centered">
+        <img src="static/figures/pipeline_h.png" width="500" height="600">
+      </div>
+        <div class="content has-text-justified">
+          <p>
+
+            We define a sketch as a set of <i>n</i> black strokes placed over a white background, and train a simple multilayer perceptron (MLP-loc) network to map an initial set of stroke parameters to their final locations forming a single sketch.
+            The training process is done per image (e.g. withtout external dataset), and is guided by a pre-trained CLIP-ViT model, leveraging its powerful ability to capture the semantics and global context of the entire scene.
+            </p>
+        </div>
+        <div class="column is-centered has-text-centered">
+        <img src="static/figures/pipeline.png" width="500" height="600">
+      </div>
+      <div class="content has-text-justified">
+          <p>
+            To realize the fidelity axis, we utilize different intermediate layers of CLIP-ViT to guide the training process, where shallow layers preserve the geometry of the image and deeper layers encourage the creation of looser sketches that rely more on the semantics of the scene.
+            To realize the \emph{simplicity} axis, we jointly train an additional MLP network (MLP-simp) that learns how to best discard strokes without harming the meaning and recognizability of the sketch.
+            The use of the networks over a direct optimization-based approach is crucial for achieving a <i>learned</i> simplification of the sketch. 
+
+
+            
+          </p>
+        
+        
       </div>
     </div>
-  </div>
-</section>
-<!-- End Method explain -->
 
 <!-- Youtube video -->
 <section class="hero is-small">
