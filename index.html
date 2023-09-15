@@ -222,7 +222,8 @@ Ovis canadensis’,’Irish terrier’, ’alp’, ’Egyptian cat’.
               <h2 class="title is-3">How does it work?</h2>
               <div class="content has-text-justified">
                 <p>
-                  ?????????????????????
+                  We embrace the idea of integration in order to find what parts in the input influenced the model's decision the most.
+                  By taking intermediate representations of the network and their gradients, propagating them forward and iterating them iteratively, we manage to find crucial parts in the input that influenced the model's output prediction.
                   </p>
               </div>
               <div class="column is-centered has-text-centered">
@@ -230,15 +231,16 @@ Ovis canadensis’,’Irish terrier’, ’alp’, ’Egyptian cat’.
             </div>
               <div class="content has-text-justified">
                 <p>
-                ?????????????????????
+                IIA is a generic approach that provides a solution for both CNN's and ViT's.
+                  On CNN's we use the activations of the network as the intermediate representations while on ViT we take the attention matrices.
                  </p>
               </div>
               <div class="column is-centered has-text-centered">
-              <img src="static/images/iia-illustration.png" width="500" height="600">
+              <img src="static/images/iia-illustration.png" width="2000" height="1000">
             </div>
             <div class="content has-text-justified">
                 <p>
-                  ?????????????????????
+                  While aggregating the activations is done easily with hadamard product on CNN's, on ViT we deal with multiple attention heads and blocks, thus we use an approach called Gradient Rollout (based on the fimiliar Attention Rollout) in order to aggregate the attention information with its gradients.
                 </p>
 
             </div>
