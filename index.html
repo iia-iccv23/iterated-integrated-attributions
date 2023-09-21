@@ -147,19 +147,9 @@
         type="video/mp4">
       </video>
       
-      <h2 class="subtitle has-text-justified">
-        
-         We embrace the idea of integration from Integrated Gradients (IG) to create explanation maps that utilize both intermediate representations of the network and gradients. IIA diverges from IG in several aspects: First, IIA does
-not confine gradient computation to the input x. In fact,
-recent studies have suggested that gradients derived from
-internal activation maps can yield improved explanation
-maps. Secondly, IIA employs an iterated integral across multiple intermediate representations (such as
-activation or attention maps) generated during the network’s
-forward pass. This enables the iterative accumulation of
-gradients w.r.t. the representations of interest. Lastly, unlike
-IG, IIA does not restrict the integrand to plain gradients, but
-encompasses a function of the entire set of representations
-produced by the network and their gradients.
+      <h2 class="subtitle has-text-centered">
+        Illustration of the integration process of IIA.
+         
       </h2>
     </div>
   </div>
@@ -198,8 +188,17 @@ state-of-the-art explanation techniques.
               <h2 class="title is-3">How does it work?</h2>
               <div class="content has-text-justified">
                 <p>
-                  We embrace the idea of integration in order to find what parts in the input influenced the model's decision the most.
-                  By taking intermediate representations of the network and their gradients, propagating them forward and iterating them iteratively, we manage to find crucial parts in the input that influenced the model's output prediction.
+                  We embrace the idea of integration from Integrated Gradients (IG) to create explanation maps that utilize both intermediate representations of the network and gradients. IIA diverges from IG in several aspects: First, IIA does
+not confine gradient computation to the input x. In fact,
+recent studies have suggested that gradients derived from
+internal activation maps can yield improved explanation
+maps. Secondly, IIA employs an iterated integral across multiple intermediate representations (such as
+activation or attention maps) generated during the network’s
+forward pass. This enables the iterative accumulation of
+gradients w.r.t. the representations of interest. Lastly, unlike
+IG, IIA does not restrict the integrand to plain gradients, but
+encompasses a function of the entire set of representations
+produced by the network and their gradients.
                   </p>
               </div>
               <div class="column is-centered has-text-centered">
